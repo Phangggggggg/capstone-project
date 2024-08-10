@@ -32,11 +32,11 @@ def fetch_visa():
             end_date = END_DATE
 
             data = finhub_client.get_visa_data(symbol=symbol, start_date=start_date, end_date=end_date)
-            update_last_fetch_date(symbol, end_date)
             
             if data and len(data['data']) > 0:
                 data_list = data['data']
-                
+                update_last_fetch_date(symbol, end_date)
+
                 if not isinstance(data_list, list):
                     logger.warning(f"Invalid data format for symbol: {symbol}")
                     continue
@@ -59,7 +59,7 @@ def on_message(ws, message):
         data = message['data']
         if data and len(data) > 0:
             for info in data:
-                stock_producer.produce_message(key=data['s'],value=info)
+                stock_producer.produce_message(key=info['s'],message=info)
             stock_producer.flush()
             logger.info(f"{stock_producer.get_delivered_count()} messages were produced to topic {STOCK_TOPIC}!")
 
@@ -70,8 +70,8 @@ def on_close(ws):
     print("### closed ###")
 
 def on_open(ws):
-    for symbol in symbol_lists:
-        listen_message = {"type": "subscribe", "symbol": symbol}
+    # for symbol in symbol_lists:
+        listen_message = {"type": "subscribe", "symbol": "BINANCE:BTCUSDT"}
         ws.send(json.dumps(listen_message))
     
 def fetch_stock():
@@ -103,7 +103,6 @@ if __name__ == '__main__':
     stock_thread = threading.Thread(target=fetch_stock, daemon=True)
     stock_thread.start()
 
-    schedule.every(1).minutes.do(fetch_visa)
     while True:
-        schedule.run_pending()
-        time.sleep(1)
+        fetch_visa()
+        time.sleep(5)

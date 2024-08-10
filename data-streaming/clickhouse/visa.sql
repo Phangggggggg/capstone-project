@@ -1,0 +1,26 @@
+CREATE TABLE visa
+(
+    year UInt16,
+    quarter UInt8,
+    symbol String,
+    caseNumber String,
+    caseStatus String,
+    receivedDate Date,
+    visaClass String,
+    jobTitle String,
+    socCode String,
+    fullTimePosition String,
+    beginDate Date,
+    endDate Date,
+    employerName String,
+    worksiteAddress String,
+    worksiteCity String,
+    worksiteCounty String,
+    worksiteState String,
+    worksitePostalCode String,
+    wageRangeFrom Float64,
+    wageRangeTo Nullable(Float64),
+    wageUnitOfPay String,
+    wageLevel String,
+    h1bDependent String
+) ENGINE = MergeTree ORDER BY (symbol,year, quarter, caseNumber);

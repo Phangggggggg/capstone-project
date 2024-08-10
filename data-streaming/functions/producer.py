@@ -66,22 +66,3 @@ class KafkaProducer:
         """
         return self.delivered_records
     
-if __name__ == '__main__':
-    # Configuration and topic setup
-    config_file = "application/config/client.properties"
-    topic = "test-topic"
-
-    # Initialize the Kafka producer
-    kafka_producer = KafkaProducer(config_file, topic)
-
-    # Sample data to produce
-    sample_data = {"id": 1, "name": "example"}
-
-    # Produce a message
-    kafka_producer.produce_message(sample_data)
-
-    # Ensure all messages are sent
-    kafka_producer.flush()
-
-    # Get the count of delivered messages
-    print(f"{kafka_producer.get_delivered_count()} messages were produced to topic {topic}!")
