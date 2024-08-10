@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,circuitpython,git,jupyternotebooks,python,pythonvanilla,vs
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,circuitpython,git,jupyternotebooks,python,pythonvanilla,vs
 
+
+application/config/*
 ### CircuitPython ###
 .Trashes
 .metadata_never_index
@@ -44,7 +46,8 @@ ipython_config.py
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
