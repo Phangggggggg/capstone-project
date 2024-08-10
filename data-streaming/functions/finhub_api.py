@@ -27,8 +27,7 @@ class FinnhubClient:
             data = self.client.stock_visa_application(symbol, start_date, end_date)
             return data
         except Exception as e:
-            print(f"An error occurred: {e}")
-            return None
+            raise ValueError(f"An error occurred: {e}")
         
     def get_stock_data(self,symbol):
         try:
@@ -36,5 +35,4 @@ class FinnhubClient:
             data = self.client.quote(symbol)
             return data
         except Exception as e:
-            print(f"An error occurred: {e}")
-            return None
+            raise ValueError(f"An error occurred: {e}")

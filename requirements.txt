@@ -18,3 +18,4 @@ pandas==2.2.2
 python-dotenv==1.0.1
 finnhub-python==2.4.20
 sqlalchemy==2.0.32
+schedule==1.2.2
