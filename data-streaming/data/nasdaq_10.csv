@@ -1,0 +1,11 @@
+Company,Ticker,GICSSector,GICSSubIndustry
+Apple Inc.,AAPL,Information Technology,"Technology Hardware, Storage & Peripherals"
+Microsoft,MSFT,Information Technology,Systems Software
+Amazon,AMZN,Consumer Discretionary,Internet & Direct Marketing Retail
+Alphabet Inc.(Class A),GOOGL,Communication Services,Interactive Media & Services
+Meta Platforms,META,Communication Services,Interactive Media & Services
+Netflix,NFLX,Communication Services,Movies & Entertainment
+"Tesla, Inc.",TSLA,Consumer Discretionary,Automobile Manufacturers
+Nvidia,NVDA,Information Technology,Semiconductors
+Adobe Inc.,ADBE,Information Technology,Application Software
+Intel,INTC,Information Technology,Semiconductors
