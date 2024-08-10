@@ -100,13 +100,10 @@ if __name__ == '__main__':
     
     setup_tracking_database()
     websocket.enableTrace(True)
-    fetch_stock()
-    # print(1)
-    # stock_thread = threading.Thread(target=fetch_stock, daemon=True)
-    # stock_thread.start()
-    # # schedule.every(2).minutes.do(lambda: threading.Thread(target=fetch_visa).start())
-    # schedule.every(60).minutes.do(fetch_visa)
+    stock_thread = threading.Thread(target=fetch_stock, daemon=True)
+    stock_thread.start()
 
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    schedule.every(1).minutes.do(fetch_visa)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
