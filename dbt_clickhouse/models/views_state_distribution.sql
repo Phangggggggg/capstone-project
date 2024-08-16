@@ -5,7 +5,7 @@
 }}
 
 
-
+-- Show location distribution of submitted cases
 SELECT
     worksiteState,
     count(1) AS records_cnt,

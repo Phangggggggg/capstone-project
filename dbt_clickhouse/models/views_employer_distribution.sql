@@ -4,6 +4,7 @@
     )
 }}
 
+-- Count case number and wage distribution by company name
 SELECT 
     splitByChar( ',', upper(employerName))[1] as company_name,
     count(1) as records_cnt,

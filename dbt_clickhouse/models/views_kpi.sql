@@ -4,6 +4,7 @@
     )
 }}
 
+-- For KPI board showing recent stats 
 SELECT 
     count(distinct caseNumber) as case_cnt,
     count(distinct case when receivedDate = curr_date then caseNumber end) as today_case_cnt,

@@ -4,6 +4,7 @@
     )
 }}
 
+--Count number of received case by day
 SELECT 
     receivedDate as received_date,
     count(1) as records_cnt,

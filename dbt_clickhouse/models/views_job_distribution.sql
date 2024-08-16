@@ -6,7 +6,7 @@
 }}
 
 
-
+-- count job distribution of applicants
 SELECT 
     *
     , records *1.0 / sum(records) over () as records_pcent
