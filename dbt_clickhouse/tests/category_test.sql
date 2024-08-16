@@ -1,0 +1,27 @@
+select *
+from {{ ref('views_job_distribution') }}
+where positionName not in (
+'All Occupations'
+,'Management Occupations'
+,'Business and Financial Operations Occupations'
+,'Computer and Mathematical Occupations'
+,'Architecture and Engineering Occupations'
+,'Life, Physical, and Social Science Occupations'
+,'Community and Social Service Occupations'
+,'Legal Occupations'
+,'Educational Instruction and Library Occupations'
+,'Arts, Design, Entertainment, Sports, and Media Occupations'
+,'Healthcare Practitioners and Technical Occupations'
+,'Healthcare Support Occupations'
+,'Protective Service Occupations'
+,'Food Preparation and Serving Related Occupations'
+,'Building and Grounds Cleaning and Maintenance Occupations'
+,'Personal Care and Service Occupations'
+,'Sales and Related Occupations'
+,'Office and Administrative Support Occupations'
+,'Farming, Fishing, and Forestry Occupations'
+,'Construction and Extraction Occupations'
+,'Installation, Maintenance, and Repair Occupations'
+,'Production Occupations'
+,'Transportation and Material Moving Occupations'
+)

@@ -1,0 +1,12 @@
+# profiles.yml file example for dbt with ClickHouse
+dbt_clickhouse:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      schema: default
+      host: mklsbnpt0q.ap-southeast-1.aws.clickhouse.cloud
+      port: 8443 # use 9440 for native
+      user: default
+      password: HgBUQH4FtQS_M
+      secure: True
