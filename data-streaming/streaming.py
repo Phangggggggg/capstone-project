@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 @lru_cache(maxsize=None)
 def load_symbol_lists():
-    return pd.read_csv('data-streaming/data/nasdaq_10.csv',encoding='utf-8')['Ticker'].to_list()
+    return pd.read_csv('data/nasdaq_10.csv',encoding='utf-8')['Ticker'].to_list()
 
 symbol_lists = load_symbol_lists()
 

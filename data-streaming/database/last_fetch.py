@@ -9,7 +9,7 @@ class FetchTracker(Base):
     symbol = Column(String, primary_key=True)
     last_fetch_date = Column(String)
 
-DATABASE_URL = 'sqlite:///data-streaming/data/last_fetch.db'
+DATABASE_URL = 'sqlite:///data/last_fetch.db'
 
 # conn = sqlite3.connect('data-streaming/data/last_fetch.db')
 engine = create_engine(DATABASE_URL, echo=True)
