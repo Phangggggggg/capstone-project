@@ -23,8 +23,23 @@
 ## Steps of Implementation
 
 ### 1. Source: Finhub API/Finhub WebSockets
-- The data source application is designed to fetch financial data from two primary sources provided by Finnhub:
-    -  Stock VISA Application Data: This data source is accessed via the Finnhub API, which provides historical financial transaction data related to H1-B and Permanent visa applications for companies that existed in the US stock markets.
-    - Real-time Trades for US Stocks: To capture live trade events, the application uses Finnhub's WebSocket API, which streams real-time trade data for US stocks. By subscribing to this WebSocket service, the application receives immediate updates on trade activities for the selected stocks (In this case, we have selected 10 companies within Nasdaq), enabling it to process and analyze real-time market data as it happens.
+- The data source application is designed to fetch visa applicationa and the real-time US stock trades data
 - Implementation of data streaming
+    - We utilize a class to create and manage Kafka topics for streaming real-time stock data from Finnhub through a WebSocket connection. This WebSocket provides live updates on stock trades for the top technology companies listed on NASDAQ, as specified in a CSV file. In addition, we fetch historical H1 visa application data for these companies using Finnhub's API.
+    - Both types of data are captured and sent to their respective Kafka topics. A connector managed by Confluent Cloud then seamlessly transfers this information from Kafka topics to ClickHouse. This setup ensures that both real-time stock trade data and historical visa application data are efficiently streamed, processed, and stored for further analysis and reporting.
+    ![stock-connector](images/stock-connector.png)
+    ![stock-clickhouse](images/stock-clickhouse.png)
+    - The streaming application is hosted on AWS, with the Docker image pushed to ECR and tasks running on ECS. Environment variables, API credentials, and configuration properties are stored in S3.
+    ![streaming-ecr](images/streaming-ecr.png)
+    ![streaming-ecs](images/streaming-ecs.png)
+    ![streaming-env](images/streaming-env.png)
+
+
+
+
+
+
+
+
+
 
