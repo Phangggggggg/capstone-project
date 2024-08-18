@@ -30,7 +30,7 @@ def fetch_visa():
             last_fetch_date = get_last_fetch_date(symbol)
             start_date = last_fetch_date if last_fetch_date else START_DATE
             end_date = END_DATE
-
+            logger.info(f"start date: {START_DATE} and end date: {END_DATE} for symbol {symbol}")
             data = finhub_client.get_visa_data(symbol=symbol, start_date=start_date, end_date=end_date)
             
             if data and len(data['data']) > 0:
@@ -47,7 +47,7 @@ def fetch_visa():
                 visa_producer.flush()
                 logger.info(f"{visa_producer.get_delivered_count()} messages were produced to topic {VISA_TOPIC}!")
             else:
-                logger.warning(f"No data fetched for symbol: {symbol}")
+                logger.warning(f"No data fetched for symbol: {symbol} during {START_DATE} - {end_date}")
                 
         except Exception as e:
             logger.error(f"Error processing symbol {symbol}: {e}")
@@ -90,8 +90,13 @@ if __name__ == '__main__':
     VISA_TOPIC = os.environ.get("VISA_TOPIC")
     STOCK_TOPIC = os.environ.get("STOCK_TOPIC")
     CONFIG_FILE = os.environ.get("CONFIG_FILE")
-    START_DATE = "2023-08-10"
+    START_DATE = "2021-08-10"
     END_DATE = datetime.now().date().strftime('%Y-%m-%d')
+    
+    logger.info(f"Data streaming starting....")
+
+    logger.info(f"start date: {START_DATE} and end date: {END_DATE}!")
+
     
     finhub_client = FinnhubClient(api_key=FINHUB_API_KEY)
     
@@ -100,7 +105,6 @@ if __name__ == '__main__':
     
     setup_tracking_database()
     websocket.enableTrace(True)
-    fetch_stock()
     stock_thread = threading.Thread(target=fetch_stock, daemon=True)
     stock_thread.start()
 

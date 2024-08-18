@@ -17,4 +17,14 @@
 | Stream real-time trades for US stocks (Finnhub) | Websockets  | [Documentation](https://finnhub.io/docs/api/websocket-trades)      |
 | Nasdaq stock name                       | CSV         | [GitHub Repository](https://github.com/datasets/nasdaq-listings/blob/master/data/nasdaq-listed.csv) |
 
+## Solution Architect
+![solution-architect](images/solution-architect.jpg)
+
+## Steps of Implementation
+
+### 1. Source: Finhub API/Finhub WebSockets
+- The data source application is designed to fetch financial data from two primary sources provided by Finnhub:
+    -  Stock VISA Application Data: This data source is accessed via the Finnhub API, which provides historical financial transaction data related to H1-B and Permanent visa applications for companies that existed in the US stock markets.
+    - Real-time Trades for US Stocks: To capture live trade events, the application uses Finnhub's WebSocket API, which streams real-time trade data for US stocks. By subscribing to this WebSocket service, the application receives immediate updates on trade activities for the selected stocks (In this case, we have selected 10 companies within Nasdaq), enabling it to process and analyze real-time market data as it happens.
+- Implementation of data streaming
 
