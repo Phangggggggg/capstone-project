@@ -20,6 +20,6 @@ where
     --    stock
     --)
     --select correct real-time stock window
-    fromUnixTimestamp(cast(t/1000 as int)) >= tumbleStart(now(), toIntervalDay('2'))
+    fromUnixTimestamp(cast(t/1000 as int)) >= tumbleStart(now(), toIntervalDay('6'))
 group by 1,2
 order by 1,2

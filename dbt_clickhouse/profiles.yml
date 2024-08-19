@@ -5,8 +5,8 @@ dbt_clickhouse:
     dev:
       type: clickhouse
       schema: default
-      host: mklsbnpt0q.ap-southeast-1.aws.clickhouse.cloud
-      port: 8443 # use 9440 for native
-      user: default
-      password: HgBUQH4FtQS_M
+      host: "{{ env_var('DBT_CLICKHOUSE_HOST') }}"
+      port: "{{ env_var('DBT_CLICKHOUSE_PORT') }}"
+      user: "{{ env_var('DBT_CLICKHOUSE_USER') }}"
+      password: "{{ env_var('DBT_CLICKHOUSE_PASSWORD') }}"
       secure: True
