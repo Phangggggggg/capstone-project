@@ -4,26 +4,11 @@ on:
   workflow_dispatch: {}
   # Triggered on each pull request to main
   pull_request:
-    branches: [ main ]
+    branches: [ charlie/feature/transform ]
 
 jobs:
   linter:
     runs-on: ubuntu-latest
-    container:
-      image: python:3.9-bookworm
-    services:
-      postgres:
-        image: yandex/clickhouse-server
-        env:
-          CLICKHOUSE_USER: default
-          CLICKHOUSE_PASSWORD: HgBUQH4FtQS_M
-          CLICKHOUSE_DB: default 
-        ports:
-          - 8443:8443
-        options: >-
-          --health-cmd="clickhouse client --query='SELECT 1'"
-          --health-interval 10s
-          --health-timeout 5s
 
     steps:
       - name: Checkout code repository in agent
