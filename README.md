@@ -50,7 +50,12 @@
 - Trigger linter check of Python when PR happened in main
 
 ## Limitations and Lesson Learned
-- Ensure there are no duplications 
+- Stock Websocket does not allow to subscribe more than 10 symbols when calling.
+
+- Implementing CI/CD as early as possible generally reduces the effort required for code formatting and alignment, making it easier for the team to stay consistent.
+
+- Gain knowledge about how websockets work in general and how is it preferred to be used in real time updates
+
 
 
 
