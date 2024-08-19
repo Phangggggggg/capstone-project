@@ -70,8 +70,8 @@ def on_close(ws):
     print("### closed ###")
 
 def on_open(ws):
-    # for symbol in symbol_lists:
-        listen_message = {"type": "subscribe", "symbol": "BINANCE:BTCUSDT"}
+    for symbol in symbol_lists:
+        listen_message = {"type": "subscribe", "symbol": symbol}
         ws.send(json.dumps(listen_message))
     
 def fetch_stock():
@@ -100,6 +100,7 @@ if __name__ == '__main__':
     
     setup_tracking_database()
     websocket.enableTrace(True)
+    fetch_stock()
     stock_thread = threading.Thread(target=fetch_stock, daemon=True)
     stock_thread.start()
 
