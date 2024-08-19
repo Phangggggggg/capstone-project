@@ -6,7 +6,7 @@ dbt_clickhouse:
       type: clickhouse
       schema: default
       host: "{{ env_var('DBT_CLICKHOUSE_HOST') }}"
-      port: "{{ env_var('DBT_CLICKHOUSE_PORT') }}"
+      port: "{{ env_var('DBT_CLICKHOUSE_PORT') | int }}"
       user: "{{ env_var('DBT_CLICKHOUSE_USER') }}"
       password: "{{ env_var('DBT_CLICKHOUSE_PASSWORD') }}"
       secure: True
