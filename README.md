@@ -34,6 +34,18 @@
     ![streaming-ecs](images/streaming-ecs.png)
     ![streaming-env](images/streaming-env.png)
 
+### 2. Transform
+- Using DBT to manipulate clickhouse, creating transformed views of origin data
+- Apply test in DBT to verify the table contents and column restrains
+![dbt](dbt.png)
+
+### 3. Dashboard Deployment
+- Connecting Preset with Clickhouse in different data sets
+- Set the refreshing frequency
+- Showing the analytical results by dashboards
+![dashboard](dashboard.png)
+
+
 ## Limitations and Lesson Learned
 - Ensure there are no duplications 
 
