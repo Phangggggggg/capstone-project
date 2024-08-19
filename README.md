@@ -45,6 +45,9 @@
 - Showing the analytical results by dashboards
 ![dashboard](images/dashboard.png)
 
+### 4. Continuous Integration
+- Using Github Action to add a workflow
+- Trigger linter check of Python when PR happened in main
 
 ## Limitations and Lesson Learned
 - Ensure there are no duplications 
