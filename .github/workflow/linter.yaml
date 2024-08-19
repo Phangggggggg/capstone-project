@@ -1,31 +1,25 @@
-name: linter
-on:
-  # Can be manually triggered
-  workflow_dispatch: {}
-  # Triggered on each pull request to main
-  pull_request:
-    branches: [ charlie/feature/transform ]
+name: Lint Code Base
+
+on: [push, pull_request]
 
 jobs:
-  linter:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code repository in agent
-        uses: actions/checkout@v4
-        with:
-          set-safe-directory: true
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
 
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r ./requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black
 
-      - name: Run linting checks. Exit code 1 if linter failed
-        run: |
+    - name: Run linter script
+      run: |
           bash ./bin/linter.sh
