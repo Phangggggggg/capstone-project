@@ -34,7 +34,8 @@
     ![streaming-ecs](images/streaming-ecs.png)
     ![streaming-env](images/streaming-env.png)
 
-
+## Limitations and Lesson Learned
+- Ensure there are no duplications 
 
 
 
